@@ -1,0 +1,23 @@
+
+#define macro MAIN() = {
+    huff_add_jumpdest:
+        // load a from calldata
+        0x04
+        calldataload
+
+        // load b from calldata
+        0x24
+        calldataload
+
+        // add a and b
+        add
+
+        // store the result in memeory at 0x00
+        0x00
+        mstore
+
+        // return to solidity execution at the jumpdest stored in 0x20
+        0x20
+        mload
+        jump
+}
